@@ -1,3 +1,30 @@
+1.14.5
+- fixed incompatibility with Laravel 4.1 an 4.2 (introduced in 1.14.3)
+
+1.14.4
+- added support for Lumen 5.5 (thanks nebez)
+
+1.14.3
+- added support for Laravel 5.5 package auto-discovery (thanks Omranic)
+- added automatic registration of the Laravel middleware (no need to edit your `Http/Kernel.php` anymore, existing installations don't need to be changed)
+- updated Laravel artisan clockwork:clean command for Laravel 5.5 (thanks rosswilson252)
+- fixed crash when retrieving all requests from Sql storage (thanks pies)
+
+1.14.2
+- fixed missing imports in Doctrine data source (thanks jenssegers)
+
+1.14.1
+- fixed collecting Eloquent queries when using PDO_ODBC driver for real (thanks abhimanyu003)
+
+1.14
+- added support for Server-Timing headers (thanks Garbee)
+- fixed compatibility with Lumen 5.4 (thanks Dimasdanz)
+- fixed collecting Eloquent queries with bindings containing backslashes (thanks fitztrev)
+- fixed collecting Eloquent queries when using PDO_ODBC driver (thanks abhimanyu003)
+- fixed collecting Doctrine queries with array bindings (thanks RolfJanssen)
+- replaced Doctrine bindings preparation code with more complete version from laravel-doctrine
+- fixed PHP 5.3 compatibility
+
 1.13.1
 - fixed compatibility with Lumen 5.4 (thanks meanevo)
 
