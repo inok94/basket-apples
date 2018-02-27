@@ -2,7 +2,8 @@
 
 namespace App\Providers;
 
-use App\Services\Apples\ApplesRepo;
+use App\Http\Controllers\ApplesController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -14,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+
     }
 
     /**
@@ -25,7 +26,10 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton('apples.repo', function () {
-            return new ApplesRepo();
+            return new ApplesController();
+        });
+        $this->app->singleton('users.repo', function () {
+            return new UsersController();
         });
     }
 }

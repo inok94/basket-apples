@@ -4,6 +4,10 @@ namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+/**
+ * Class User
+ * @package App
+ */
 class User extends Authenticatable
 {
     /**
@@ -24,18 +28,42 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-
-    public function getApplesCount() {
-        return 0;
+    /**
+     * @return mixed
+     */
+    public static function getTableName()
+    {
+        return with(new static)->getTable();
     }
-
 
     /**
-     * @param Apple $apple
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function takeApple($apple ) {
-        // take apple
+    public function storages()
+    {
+        return $this->hasMany(Storage::class);
     }
 
+    /**
+     * @return
+     */
+    public function getApplesCount()
+    {
+        return count($this->storages);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function apples()
+    {
+        return $this->belongsToMany(
+            Apple::class,
+            'storages',
+            'user_id',
+            'apple_id'
+        )
+            ->withTimestamps();
+    }
 }
 
