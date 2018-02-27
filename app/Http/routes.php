@@ -1,9 +1,6 @@
 <?php
 
-
-
-
-Route::get('/', 'HomeController@getHome' );
-Route::get('/take-apple/{user_id}', 'HomeController@getTakeApple' );
-Route::get('/free-apples', 'HomeController@getFreeApples' );
+Route::get('/', 'HomeController@getHome' )->name('home');
+Route::get('/take-apple/{user}', 'ApplesController@grabApple' );
+Route::get('/free-apples', 'ApplesController@deleteGrabbedApples' );
 
